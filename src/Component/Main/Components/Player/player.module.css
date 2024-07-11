@@ -1,0 +1,89 @@
+.component {
+  background-color: #6B0000;
+  border-radius: 10px;
+  margin: 2rem;
+  padding: 1rem 2rem;
+  width: 20%;
+  align-self: flex-end;
+}
+
+.musicCover {
+  border-radius: 10px;
+  height: 150px;
+  width: 100%;
+}
+
+.playingnow {
+    color: #f6f6f6;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 1rem;
+}
+
+.title {
+  font-weight: bold;
+  color: #f6f6f6;
+  text-align: center;
+}
+
+.subTitle {
+  color: #f6f6f6;
+  margin-top: -1rem;
+  text-align: center;
+}
+
+.indicator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 3px;
+  background: #f6f6f6;
+  outline: none;
+  border-radius: 5px;
+}
+
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #f6f6f6;
+  cursor: pointer;
+}
+
+.range::-webkit-slider-runnable-track {
+  height: 15px;
+  -webkit-appearance: none;
+  color: #f6f6f6;
+}
+
+.controlbuttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.playbtn {
+    background-color: #480000;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* @media (max-width: 900px) {
+  .component {
+    width: 50%;
+  }
+} */
+ 
+.btns {
+  cursor: pointer;
+}

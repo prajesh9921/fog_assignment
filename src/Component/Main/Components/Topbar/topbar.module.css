@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 3rem 0 3rem;
+  align-items: center;
+}
+
+.topbaritems {
+  color: #fff;
+  flex: 1;
+}
+
+.inputBox {
+  display: flex;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #2C0000;
+  align-items: center;
+  padding: 0 10px;
+  flex: 3;
+}
+
+.input {
+  outline: none;
+  border: none;
+  background-color: transparent; 
+  color: #fff;
+  flex: 1;
+}

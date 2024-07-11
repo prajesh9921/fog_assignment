@@ -1,0 +1,36 @@
+p {
+  color: #fff;
+}
+
+.container {
+  height: 100vh;
+  width: 75vw;
+  display: flex;
+}
+
+.content {
+  padding: 1.5rem 0 1.5rem 0;
+  width: 70%;
+  height: 100%;
+  box-sizing: border-box;
+  background-image: linear-gradient(
+    180deg,
+    hsl(0deg 100% 15%) 0%,
+    hsl(3deg 97% 14%) 7%,
+    hsl(5deg 93% 13%) 19%,
+    hsl(8deg 89% 12%) 35%,
+    hsl(10deg 84% 10%) 51%,
+    hsl(12deg 78% 9%) 65%,
+    hsl(13deg 70% 8%) 77%,
+    hsl(11deg 59% 7%) 86%,
+    hsl(10deg 43% 6%) 94%,
+    hsl(0deg 0% 4%) 100%
+  );
+}
+
+.artist {
+  height: 50%;
+  object-fit: contain;
+  width: 100%;
+  margin-top: 2rem;
+}

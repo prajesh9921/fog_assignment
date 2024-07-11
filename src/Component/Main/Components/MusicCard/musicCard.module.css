@@ -1,0 +1,81 @@
+th:first-child,
+td:first-child,
+th:last-child,
+td:last-child {
+  padding: 0 3rem;
+}
+
+tr {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.topheading {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 3rem;
+}
+
+.table {
+  color: #fff;
+  width: 100%;
+  text-align: left;
+  border-spacing: 0 10px;
+}
+
+.tablerow {
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.hash {
+  flex: 1;
+}
+
+.title {
+  flex: 3;
+}
+
+.playing {
+  flex: 1;
+}
+
+.time {
+  flex: 1;
+}
+
+.album {
+  flex: 1;
+  text-align: end;
+}
+
+.albumimg {
+  height: 40px;
+  width: 40px;
+}
+
+.tablerowsr {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.selected {
+  height: 100%;
+  width: 5px;
+  background-color: #ca0000;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.tablewrap {
+  height: 200px;
+  overflow-y: auto;
+}
+
+.tablewrap::-webkit-scrollbar {
+  display: none;
+}

@@ -1,0 +1,40 @@
+p {
+    color: #F6F6F6
+}
+.container {
+    height: 100vh;
+    width: 25vw;
+    box-sizing: border-box;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.logo{
+    height: 50px;
+    object-fit: cover;
+}
+
+.menu {
+    margin-top: 2rem;
+}
+
+.menulabel {
+    font-size: 0.7rem;
+    margin-bottom: 1rem;
+}
+
+.menutext {
+    font-size: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.icon {
+    height: 22px;
+    width: 22px;
+}
+
