@@ -6,12 +6,14 @@ import MusicPlayer from "./Components/Player/player";
 import MusicCard from "./Components/MusicCard/musicCard";
 import { Howl } from "howler";
 import songs from "../../data";
+import { DragDropContext } from "react-beautiful-dnd";
 
 export default function MainContent() {
+  const [songsList, setSongsList] = useState(songs)
   const [selectedSong, setSelectedSong] = useState({
-    data: songs[0],
+    data: songsList[0],
     curridx: 0,
-    totalsongs: songs.length
+    totalsongs: songsList.length,
   });
   const [currentSound, setCurrentSound] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -26,11 +28,11 @@ export default function MainContent() {
     const sound = new Howl({
       src: [song],
       html5: true,
-      onend: function() {
+      onend: function () {
         setIsPlaying(false);
         setSeconds(0);
         console.log("Finished!");
-      }
+      },
     });
     const id = sound.play();
     setCurrentSound(sound);
@@ -44,11 +46,11 @@ export default function MainContent() {
       setSelectedCard(nextidx);
       setSelectedSong({
         ...selectedSong,
-        data: songs[nextidx],
-        curridx: nextidx
+        data: songsList[nextidx],
+        curridx: nextidx,
       });
       setSeconds(0);
-      playSong(songs[nextidx].path);
+      playSong(songsList[nextidx].path);
     }
   };
 
@@ -58,11 +60,11 @@ export default function MainContent() {
       setSelectedCard(previousidx);
       setSelectedSong({
         ...selectedSong,
-        data: songs[previousidx],
-        curridx: previousidx
+        data: songsList[previousidx],
+        curridx: previousidx,
       });
       setSeconds(0);
-      playSong(songs[previousidx].path);
+      playSong(songsList[previousidx].path);
     }
   };
 
@@ -71,26 +73,39 @@ export default function MainContent() {
     setSelectedCard(randomNumber);
     setSelectedSong({
       ...selectedSong,
-      data: songs[randomNumber],
-      curridx: randomNumber
+      data: songsList[randomNumber],
+      curridx: randomNumber,
     });
-    playSong(songs[randomNumber].path);
+    playSong(songsList[randomNumber].path);
   };
 
+  const onDragEnd = (result) => {
+    if (!result.destination) {
+      return;
+    }
+
+    const temp = JSON.parse(JSON.stringify(songsList));
+    const item = temp.splice(result.source.index, 1);
+    temp.splice(result.destination.index, 0, item[0]);
+    setSongsList(temp);
+  }
+
   return (
+    <DragDropContext onDragEnd={(result) => onDragEnd(result)}>
     <div className={styles.container}>
       <div className={styles.content}>
         <TopBar />
         <img src={Artist} alt="artist" className={styles.artist} />
         <MusicCard
-          setIsPlaying={setIsPlaying}
-          playSong={playSong}
-          isPlaying={isPlaying}
-          setSelectedSong={setSelectedSong}
-          selectedCard={selectedCard}
-          setSelectedCard={setSelectedCard}
-          setSeconds={setSeconds}
-        />
+            setIsPlaying={setIsPlaying}
+            playSong={playSong}
+            isPlaying={isPlaying}
+            setSelectedSong={setSelectedSong}
+            selectedCard={selectedCard}
+            setSelectedCard={setSelectedCard}
+            setSeconds={setSeconds}
+            songs={songsList}
+          />
       </div>
 
       <MusicPlayer
@@ -106,5 +121,6 @@ export default function MainContent() {
         setSeconds={setSeconds}
       />
     </div>
+    </DragDropContext>
   );
 }

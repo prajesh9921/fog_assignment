@@ -2,6 +2,7 @@ import MainContent from "./Component/Main/main";
 import Navbar from "./Component/Navbar/navbar";
 
 function App() {
+
   return (
     <div
       style={{
